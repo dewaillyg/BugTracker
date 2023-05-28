@@ -69,15 +69,15 @@ if (!isset($_SESSION['id'])) {
                             <div class="radio">
                             <div class="item">
                                 <label for="network">Réseaux</label>
-                                <input type="radio" name="tag" class="input" id="network"/>
+                                <input type="radio" name="tag" class="input" id="network" value="reseau"/>
                             </div>
                             <div class="item">
                                 <label for="dev">Développement</label>
-                                <input type="radio" name="tag" class="input" id="dev"/>
+                                <input type="radio" name="tag" class="input" id="dev" value="developpement"/>
                             </div>
                             <div class="item">
                                 <label for="graph">Graphique</label>
-                                <input type="radio" name="tag" class="input" id="graph"/>
+                                <input type="radio" name="tag" class="input" id="graph" value="graphique"/>
                             </div>
                         </div>
                         </fieldset>

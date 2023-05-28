@@ -1,0 +1,88 @@
+@import './fonts.css';
+
+html {
+    height: 100%;
+    background-color: #5c9bec;
+    width: 100%;
+    background: url('../assets/images/circle.svg') center center/cover;
+    font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 80vh;
+    width: 80vw;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background: rgba(255,255,255,.7);
+    color: #317bdd;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Poppins' 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container > div {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.i i {
+    transform: scale(1.5);
+    color: #317bdd;
+}
+
+a {
+    margin-left: 20px;
+    height: 40px;
+    min-width: 100px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #317bdd;
+    transition: width .5s;
+    position: relative;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    background-color: #5c9bec;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform-origin: 100% 0;
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+
+a:hover::before {
+    transform-origin: 0 0;
+    transform: scaleX(1);
+}
