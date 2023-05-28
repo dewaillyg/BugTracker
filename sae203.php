@@ -22,7 +22,7 @@ include './scripts/php/config/connexionBDD.php';
             <img src="./assets/images/background.svg" alt="background"/>
         </div>
         <div class="login-content">
-            <form action="./scripts/php/login.php" method="POST">
+            <form action="./scripts/php/login.php" method="POST" autocomplete="off">
                 <img src="./assets/icons/icon.png" alt="bugtracker"/>
                 <h2>BugTracker</h2>
                 <div class="input-div one">

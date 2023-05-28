@@ -20,69 +20,78 @@ if (!isset($_SESSION['id'])) {
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+<div class="container">
+      <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Bienvenu <?php echo strtoupper($_SESSION['id']); ?></h3>
+          <p class="text">
+          Vous êtes actuellement sur l'interface dédiée aux tickets d'incidents.    Afin de nous faire parvenir votre ticket, veuillez compléter le formulaire.
+          <br/>Vous trouverez l'évolution de vos demandes en cliquant sur la rubrique "Évolution de mes demandes".
+        </p>
+          <div class="img_container">
+            <div class="img"></div>
+          </div>
+
+          <div class="social-media">
+            <p>Nous contacter</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
             </div>
-            <div>
-                <a href="../../../sae203.php">Accueil</a>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <h1>Ajouter un ticket</h1>
-        <form action="../config/addTickets.php" method="GET">
-            <div class="input-div one">
-                <div class="i">
-                    <i class="fas fa-bookmark"></i>
-                </div>
-                <div class="div">
-                    <h5>Titre</h5>
-                    <input type="text" name="title" id="title"/>
-                </div>
-            </div>
-            <div class="input-div two">
-                <div class="i">
-                    <i class="fas fa-tag"></i>
-                </div>
-                <div class="div">
-                    <h5>Tag</h5>
-                    <div class="divTag">
-                        <label for="network">Réseaux</label>
-                        <input type="radio" name="tag" id="network">
-                    </div>
-                    <div class="divTag">
-                        <label for="dev">Développement</label>
-                        <input type="radio" name="tag" id="dev">
-                    </div>
-                    <div class="divTag">
-                        <label for="com">Communication</label>
-                        <input type="radio" name="tag" id="com">
-                    </div>
-                    <div class="divTag">
-                        <label for="infrastructure">Infrastructures</label>
-                        <input type="radio" name="tag" id="infrastructure">
-                    </div>
-                </div>
-            </div>
-            <div class="input-div three">
-                <div class="i">
-                        <i class="fas fa-keyboard"></i>
-                    </div>
-                    <div class="div">
-                        <h5>Description</h5>
-                        <textarea name="description" id="description"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="submit">
-                <div class="i">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <input type="submit" value="Soumettre"/>
-            </div>
-        </form>
-    </main>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="../config/addTickets.php" method="GET" autocomplete="off">
+            <h3 class="title">Formulaire</h3>
+                        <div class="input-container">
+                            <input type="text" name="title" class="input" />
+                            <label for="">Titre</label>
+                            <span>Titre</span>
+                        </div>
+                        <fieldset>
+                            <legend>Tag</legend>
+                            <div class="radio">
+                            <div class="item">
+                                <label for="network">Réseaux</label>
+                                <input type="radio" name="tag" class="input" id="network"/>
+                            </div>
+                            <div class="item">
+                                <label for="dev">Développement</label>
+                                <input type="radio" name="tag" class="input" id="dev"/>
+                            </div>
+                            <div class="item">
+                                <label for="graph">Graphique</label>
+                                <input type="radio" name="tag" class="input" id="graph"/>
+                            </div>
+                        </div>
+                        </fieldset>
+                        <div class="input-container textarea">
+                            <textarea name="description" class="input"></textarea>
+                            <label for="description">Description</label>
+                            <span>Description</span>
+                        </div>
+            <input type="submit" value="Envoyer" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../javascript/tester.js"></script>
 </body>
 </html>
