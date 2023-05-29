@@ -42,6 +42,14 @@ if (!isset($_SESSION['id'])) {
                     <a href="../pages/tester.php">Nouveau ticket</a>
                 </div>
             </div>
+             <div>
+                <div class="i">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div>
+                    <a href="./status.php">Status de mes demandes</a>
+                </div>
+            </div>
         </div>
     </main>
 </body>
