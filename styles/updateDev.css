@@ -1,0 +1,61 @@
+@import './fonts.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: 380px;
+    width: 380px;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    background: rgba(255,255,255,.1);
+    border-radius: 20px;
+    border: 1px solid whitesmoke;
+}
+  
+
+h1 {
+    height: 100px;
+}
+
+.bottom {
+    height: 100px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.mid {
+    margin: 0 20px;
+}
+
+.bottom a {
+    text-decoration: none;
+    color: whitesmoke;
+    border: 1px dashed whitesmoke;
+    padding: 5px 10px;
+    transition: background-color .3s;
+}
+
+.bottom a:hover {
+    background-color: rgba(255,255,255,.6);
+}
+

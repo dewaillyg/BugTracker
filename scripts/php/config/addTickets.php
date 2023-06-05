@@ -13,9 +13,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['title'])) {
 
 include './connexionBDD.php';
 
-var_dump($_SESSION);
-
-$sql = "INSERT INTO `bugtracker_tickets` (`title`, `tag`, `date`, `description`, `user`) VALUES (:a, :b, :c, :d, :e)";
+$sql = "INSERT INTO `sae203_tickets` (`title`, `tag`, `date`, `description`, `user`) VALUES (:a, :b, :c, :d, :e)";
 $res = $db->prepare($sql);
 $exec = $res->execute(
     array(
@@ -28,6 +26,13 @@ $exec = $res->execute(
 );
 
 if ($exec) {
+    $from = "guillaume.dewailly@univ-rouen.fr";
+    $to = "guillaume.dewailly@univ-rouen.fr";
+    $subject = "Nouveau Ticket";
+    $message = "Vous venez de recevoir un nouveau ticket de " . $_SESSION['id'];
+    $headers = "De : " . $from;
+    mail($to,$subject,$message,$headers);
+    
     header('Location: ./route.php');
 } else {
     header('Location: ../../../sae203.php');

@@ -33,10 +33,14 @@ include './connexionBDD.php';
             </div>
         </nav>
     </header>
+
+    <div class="login_container">
+        <h1 class="login"><?php echo $_SESSION['id']; ?></h1>
+    </div>
     <?php 
 
         $user = $_SESSION['id'];
-        $membersData = $db->query("SELECT * FROM bugtracker_tickets WHERE user = '$user' ORDER BY date DESC");
+        $membersData = $db->query("SELECT * FROM sae203_tickets WHERE user = '$user' ORDER BY date DESC");
         $membersData->execute();
         $members = $membersData->fetchAll();
 
@@ -54,7 +58,7 @@ include './connexionBDD.php';
             foreach ($members as $member) {
                 echo (
                     '<div class="row">
-                        <div class="cell">'.$member['date'].'</div>
+                        <div class="cell">'.date("M j, H:m", strtotime($member['date'])).'</div>
                         <div class="cell">'.$member['title'].'</div>
                         <div class="cell">'.$member['tag'].'</div>
                         <div class="cell">'.$member['description'].'</div>'

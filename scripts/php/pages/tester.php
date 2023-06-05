@@ -60,7 +60,7 @@ if (!isset($_SESSION['id'])) {
           <form action="../config/addTickets.php" method="GET" autocomplete="off">
             <h3 class="title">Formulaire</h3>
                         <div class="input-container">
-                            <input type="text" name="title" class="input" />
+                            <input type="text" name="title" class="input" required/>
                             <label for="">Titre</label>
                             <span>Titre</span>
                         </div>
@@ -69,20 +69,20 @@ if (!isset($_SESSION['id'])) {
                             <div class="radio">
                             <div class="item">
                                 <label for="network">Réseaux</label>
-                                <input type="radio" name="tag" class="input" id="network" value="reseau"/>
+                                <input type="radio" name="tag" class="input" id="network" value="reseau" required/>
                             </div>
                             <div class="item">
                                 <label for="dev">Développement</label>
-                                <input type="radio" name="tag" class="input" id="dev" value="developpement"/>
+                                <input type="radio" name="tag" class="input" id="dev" value="developpement" required/>
                             </div>
                             <div class="item">
                                 <label for="graph">Graphique</label>
-                                <input type="radio" name="tag" class="input" id="graph" value="graphique"/>
+                                <input type="radio" name="tag" class="input" id="graph" value="graphique" required/>
                             </div>
                         </div>
                         </fieldset>
                         <div class="input-container textarea">
-                            <textarea name="description" class="input"></textarea>
+                            <textarea name="description" class="input" required></textarea>
                             <label for="description">Description</label>
                             <span>Description</span>
                         </div>
