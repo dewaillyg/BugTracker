@@ -14,9 +14,13 @@ if (!isset($_SESSION['id'])) header('Location: ../../../sae203.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BugTracker | Developpeur</title>
+    <title>Développeur <?php echo $_SESSION['id']; ?></title>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="stylesheet" type="text/css" href="../../../styles/dev.css" />
+    <link rel="shortcut icon" href="<?php
+        if ($_SESSION['id'] == 'laetitia') echo "../../../assets/images/avatar2.svg";
+        else echo "../../../assets/images/avatar1.svg";
+    ?>" type="image/svg">
 </head>
 <body>
     <header>
@@ -98,33 +102,33 @@ if (!isset($_SESSION['id'])) header('Location: ../../../sae203.php');
     </div>
 </main>
         <footer>
-            <form action="../config/statusTicket.php" method="get">
-                <div class="top">
-                    <h2>Définir le ticket : </h2>
-                    <div>
-                        <select name="ids" id="ids">
-                            <?php
-                                foreach ($devs as $ticket) {
-                                    echo "<option value='".$ticket['id']."'>".$ticket['id']."</option>";
-                                }
-                            ?>
-                        </select>
+                <form action="../config/statusTicket.php" method="get">
+                    <div class="top">
+                        <h2>Définir le ticket : </h2>
+                        <div>
+                            <select name="ids" id="ids">
+                                <?php
+                                    foreach ($devs as $ticket) {
+                                        echo "<option value='".$ticket['id']."'>".$ticket['id']."</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="middle">
-                    <h2>Au status : </h2>
-                    <div>
-                        <select name="status" id="status">
-                            <option value="">-- choisir statut --</option>
-                            <option value="0">En attente</option>
-                            <option value="1">Confirmé</option>
-                            <option value="2">En cours de traitement</option>
-                            <option value="3">Terminé</option>
-                        </select>
+                    <div class="middle">
+                        <h2>Au status : </h2>
+                        <div>
+                            <select name="status" id="status">
+                                <option value="">-- choisir statut --</option>
+                                <option value="0">En attente</option>
+                                <option value="1">Confirmé</option>
+                                <option value="2">En cours de traitement</option>
+                                <option value="3">Terminé</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <input type="submit" value="soumettre"/>
-            </form>
+                    <input type="submit" value="Soumettre"/>
+                </form>
         </footer>
 </body>
 </html>

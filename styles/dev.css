@@ -161,7 +161,7 @@ form h2 {
 select {
     padding: 5px 15px;
     border: none;
-    background-color: rgb(253, 170, 221);
+    background-color: rgb(255, 227, 244);
     color: rgb(224, 58, 155);
     border-radius: 15px;
     transition: color .3s, background-color .3s;
@@ -169,22 +169,22 @@ select {
 
 select:hover  {
     cursor: pointer;
-    background-color: rgb(224, 58, 155);
-    color: rgb(253, 170, 221);
+    background-color: rgb(241, 115, 189);
+    color: rgb(255, 227, 244);
 }
 
 input[type="submit"] {
     padding: 5px 15px;
     border: none;
-    background-color: lightblue;
+    background-color: rgb(221, 245, 253);
     color: rgb(0, 110, 255);
     border-radius: 15px;
     transition: color .3s, background-color .3s;
 }
 
 input[type="submit"]:hover {
-    background-color: rgb(0, 110, 255);
-    color: lightblue;
+    background-color: rgb(78, 152, 248);
+    color: rgb(211,245,253);
     cursor: pointer;
 }
 

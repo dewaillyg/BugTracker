@@ -19,6 +19,7 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../../styles/admin.css" />
     <title>BugTracker | Dashboard</title>
+    <link rel="shortcut icon" href="../../../assets/images/avatar.svg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
@@ -40,23 +41,23 @@ if (!isset($_SESSION['id'])) {
     <section>
         <div>
             <h2>Titre</h2>
-            <a href="./admin.php?sort=title&dir=asc"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'title') echo 'active' ?>" /></a>
+            <a class="linkOrder" href="#"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'title') echo 'active' ?>" /></a>
         </div>
         <div>
             <h2>Dev</h2>
-            <a href="./admin.php?sort=id_dev&dir=asc"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'id_dev') echo 'active' ?>" /></a>
+            <a class="linkOrder" href="#"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'id_dev') echo 'active' ?>" /></a>
         </div>
         <div>
             <h2>Tag</h2>
-            <a href="./admin.php?sort=tag&dir=asc"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'tag') echo 'active' ?>" /></a>
+            <a class="linkOrder" href="#"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'tag') echo 'active' ?>" /></a>
         </div>
         <div>
             <h2>Date</h2>
-            <a href="./admin.php?sort=date&dir=desc"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'date') echo 'active' ?>" /></a>
+            <a class="linkOrder" href="#"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'date') echo 'active' ?>" /></a>
         </div>
         <div>
             <h2>Priorité</h2>
-            <a href="./admin.php?sort=severity&dir=desc"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'severity') echo 'active' ?>" /></a>
+            <a class="linkOrder" href="#"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'severity') echo 'active' ?>" /></a>
         </div>
     </section>
     <div class="infos">
@@ -176,5 +177,6 @@ if (!isset($_SESSION['id'])) {
 
         ?>
     </main>
+    <script src="../../javascript/admin.js"></script>
 </body>
 </html>
