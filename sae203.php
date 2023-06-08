@@ -16,6 +16,7 @@ include './scripts/php/config/connexionBDD.php';
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
+    <a href="./settings/README.txt">(Identifiants pour correction)</a>
     <img class="wave" src="./assets/images/wave.png"/>
     <main class="container">
         <div class="img">

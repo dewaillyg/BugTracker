@@ -1,7 +1,7 @@
 const btns = window.document.getElementsByClassName('linkOrder');
 
-const sort = ['title', 'id_dev', 'tag', 'date', 'severity'];
-const dir = ['asc', 'desc', 'asc', 'desc', 'desc'];
+const sort = ['title', 'id_dev', 'tag', 'date', 'severity', 'status'];
+const dir = ['asc', 'desc', 'asc', 'desc', 'desc', 'asc'];
 
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {

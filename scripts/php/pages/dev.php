@@ -57,16 +57,17 @@ if (!isset($_SESSION['id'])) header('Location: ../../../sae203.php');
                 <div class="cell">Date</div>
                 <div class="cell">Titre</div>
                 <div class="cell">Description</div>
-                <div class="cell">Sévérité</div>
+                <div class="cell">Prio</div>
                 <div class="cell">Status</div>
+                <div class="cell">Date maj.</div>
             </div>
 
             
             <?php
             if ($_SESSION['id'] === 'laetitia' && $_SESSION['role'] == 1 ) 
-            $devDatas = $db->query("SELECT * FROM sae203_tickets WHERE id_dev = 2 ORDER BY status DESC");
+            $devDatas = $db->query("SELECT * FROM sae203_tickets WHERE id_dev = 2 ORDER BY status ASC");
             else 
-            $devDatas = $db->query("SELECT * FROM sae203_tickets WHERE id_dev = 1 ORDER BY status DESC");
+            $devDatas = $db->query("SELECT * FROM sae203_tickets WHERE id_dev = 1 ORDER BY status ASC");
             $devDatas->execute();
             $devs = $devDatas->fetchAll();
             
@@ -91,6 +92,15 @@ if (!isset($_SESSION['id'])) header('Location: ../../../sae203.php');
                     default : echo ''; break;
                     
                 } 
+                
+                ?></div>
+                <div class="cell"><?php 
+                
+                    if ($dev['dateMAJ'] == '0000-00-00 00:00:00') {
+                        echo '-';
+                    } else {
+                        echo date("M j", strtotime($dev['dateMAJ']));
+                    }
                 
                 ?></div>
             </div>
@@ -119,7 +129,6 @@ if (!isset($_SESSION['id'])) header('Location: ../../../sae203.php');
                         <h2>Au status : </h2>
                         <div>
                             <select name="status" id="status">
-                                <option value="">-- choisir statut --</option>
                                 <option value="0">En attente</option>
                                 <option value="1">Confirmé</option>
                                 <option value="2">En cours de traitement</option>

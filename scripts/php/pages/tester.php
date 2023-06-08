@@ -26,6 +26,8 @@ if (!isset($_SESSION['id'])) {
       <div class="form">
         <div class="contact-info">
           <h3 class="title">Bienvenu <?php echo strtoupper($_SESSION['id']); ?></h3>
+          <a class="check linkOne" href='../config/logout.php'>acceuil</a>
+          <a class="check" href="../config/status.php?sub=0">mes demandes</a>
           <p class="text">
           Vous êtes actuellement sur l'interface dédiée aux tickets d'incidents.    Afin de nous faire parvenir votre ticket, veuillez compléter le formulaire.
           <br/>Vous trouverez l'évolution de vos demandes en cliquant sur la rubrique "Évolution de mes demandes".

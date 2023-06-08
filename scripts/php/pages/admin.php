@@ -59,6 +59,10 @@ if (!isset($_SESSION['id'])) {
             <h2>Priorité</h2>
             <a class="linkOrder" href="#"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'severity') echo 'active' ?>" /></a>
         </div>
+        <div>
+            <h2>Status</h2>
+            <a class="linkOrder" href="#"><input type="radio" name="order" class="btn <?php if($_GET['sort'] === 'status') echo 'active' ?>" /></a>
+        </div>
     </section>
     <div class="infos">
         <div class="infosLeft">
@@ -81,7 +85,7 @@ if (!isset($_SESSION['id'])) {
         <?php
         $query = "SELECT * FROM sae203_tickets";
 
-        $sortable = ['title', 'tag', 'date', 'severity', 'id_dev'];
+        $sortable = ['title', 'tag', 'date', 'severity', 'id_dev', 'status'];
 
         // ORGANISATION
         if (!empty($_GET['sort']) && in_array($_GET['sort'], $sortable)) {
@@ -114,6 +118,17 @@ if (!isset($_SESSION['id'])) {
                     <p class="reseau"><?php echo $ticket['title']; ?></p>
                 <?php } else { ?>
                     <p class="developpement"><?php echo $ticket['title']; } ?></p>
+                <div class="statusHeader">
+                    <?php
+                        switch ($ticket['status']) {
+                            case 0: echo '<div class="redstatus"></div><p>En attente</p>'; break;
+                            case 1: echo '<div class="orangestatus"></div><p>Confirmé</p>'; break;
+                            case 2: echo '<div class="yellowstatus"></div><p>En traitement</p>'; break;
+                            case 3: echo '<div class="greenstatus"></div><p>Terminé</p>'; break;
+                            default : echo '';break;
+                        }
+                    ?>
+                </div>
             </div>
             <div class="cardBody">
                 <?php echo mb_strimwidth($ticket['description'], 0, 90, "..."); ?>
@@ -130,6 +145,7 @@ if (!isset($_SESSION['id'])) {
                         <div class="i">
                         <?php 
                         switch ($ticket['severity']) {
+                            case 0 : ?> <i style="color:white;" class="fas fa-thermometer-full"></i><?php break;
                             case 1 : ?> <i style="color:green;" class="fas fa-thermometer-empty"></i><?php break;
                             case 2 : ?> <i style="color:yellow;" class="fas fa-thermometer-quarter"></i><?php break;
                             case 3 : ?> <i style="color:orange;" class="fas fa-thermometer-half"></i><?php break;

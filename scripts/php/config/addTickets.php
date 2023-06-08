@@ -2,9 +2,9 @@
 
 session_start();
 
-$_SESSION['title'] = $_GET['title'];
+$_SESSION['title'] = filter_var($_GET['title'], FILTER_SANITIZE_SPECIAL_CHARS);
 $_SESSION['tag'] = $_GET['tag'];
-$_SESSION['description'] = $_GET['description'];
+$_SESSION['description'] = filter_var($_GET['description'], FILTER_SANITIZE_SPECIAL_CHARS);
 $_SESSION['date'] = date('Y/m/d H:i:s', time());
 
 if (!isset($_SESSION['id']) || !isset($_SESSION['title'])) {
@@ -13,7 +13,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['title'])) {
 
 include './connexionBDD.php';
 
-$sql = "INSERT INTO `sae203_tickets` (`title`, `tag`, `date`, `description`, `user`) VALUES (:a, :b, :c, :d, :e)";
+$sql = "INSERT INTO `sae203_tickets` (`title`, `tag`, `date`, `description`, `user`, `id_dev`, `severity`, `status`, `dateMAJ`) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i)";
 $res = $db->prepare($sql);
 $exec = $res->execute(
     array(
@@ -22,6 +22,10 @@ $exec = $res->execute(
         ":c"=>$_SESSION['date'],
         ":d"=>$_SESSION['description'],
         ":e"=>$_SESSION['id'],
+        ":f"=>0,
+        ":g"=>0,
+        ":h"=>0,
+        ":i"=>'0000-00-00 00:00:00'
         )
 );
 
